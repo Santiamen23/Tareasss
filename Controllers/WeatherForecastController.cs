@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace TareaTecWeb.Controllers
+namespace   BooksTW.Controllers
 {
     [ApiController]
     [Route("[controller]")]

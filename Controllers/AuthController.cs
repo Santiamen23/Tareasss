@@ -2,7 +2,7 @@
 using TareaTecWeb.Models.Dtos;
 using TareaTecWeb.Services;
 
-namespace TareaTecWeb.Controllers
+namespace BooksTW.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
