@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.env
+.vs/
+bin/
+obj/
+*.user
+.sln
