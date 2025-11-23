@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TareaTecWeb.Migrations
+namespace BooksTW.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration

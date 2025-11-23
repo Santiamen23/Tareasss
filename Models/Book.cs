@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TareaTecWeb.Models
+namespace BooksTW.Models
 {
     public class Book
     {

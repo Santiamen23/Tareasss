@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TareaTecWeb.Models.Dtos
+namespace BooksTW.Models.Dtos
 {
     public record UpdateBookDto
     {

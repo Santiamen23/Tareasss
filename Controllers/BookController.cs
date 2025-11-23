@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TareaTecWeb.Models.Dtos;
-using TareaTecWeb.Services;
+using BooksTW.Models.Dtos;
+using BooksTW.Services;
 
-namespace TareaTecWeb.Controllers
+namespace BooksTW.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

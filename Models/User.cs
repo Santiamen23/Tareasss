@@ -1,4 +1,4 @@
-﻿namespace TareaTecWeb.Models
+﻿namespace BooksTW.Models
 {
     public class User
     {

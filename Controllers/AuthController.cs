@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TareaTecWeb.Models.Dtos;
-using TareaTecWeb.Services;
+using BooksTW.Models.Dtos;
+using BooksTW.Services;
 
 namespace BooksTW.Controllers
 {

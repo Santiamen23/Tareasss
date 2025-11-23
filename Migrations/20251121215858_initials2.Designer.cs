@@ -12,8 +12,8 @@ using BooksTW.Data;
 namespace BooksTW.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251121023331_Initial")]
-    partial class Initial
+    [Migration("20251121215858_initials2")]
+    partial class initials2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,6 +1,6 @@
-﻿using TareaTecWeb.Models;
+﻿using BooksTW.Models;
 
-namespace TareaTecWeb.Repositories
+namespace BooksTW.Repositories
 {
     public interface IBookRepository
     {

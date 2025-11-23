@@ -4,11 +4,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using TareaTecWeb.Models;
-using TareaTecWeb.Models.Dtos;
-using TareaTecWeb.Repositories;
+using BooksTW.Models;
+using BooksTW.Models.Dtos;
+using BooksTW.Repositories;
 
-namespace TareaTecWeb.Services
+namespace BooksTW.Services
 {
     public class AuthService:IAuthService
     {
@@ -30,7 +30,6 @@ namespace TareaTecWeb.Services
                 var ok = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
                 if (!ok) return (false, null);
 
-                // Generar par access/refresh
                 var (accessToken, expiresIn, jti) = GenerateJwtToken(user);
                 var refreshToken = GenerateSecureRefreshToken();
 
@@ -122,8 +121,8 @@ namespace TareaTecWeb.Services
                 new Claim(JwtRegisteredClaimNames.Jti, jti),
             };
 
-                var keyBytes = Encoding.UTF8.GetBytes(key);
-                var creds = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256);
+            var keyBytes = Convert.FromBase64String(key);
+            var creds = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256);
 
                 var expires = DateTime.UtcNow.AddMinutes(expireMinutes);
 

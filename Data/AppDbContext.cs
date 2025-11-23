@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TareaTecWeb.Models;
+using BooksTW.Models;
 
-namespace TareaTecWeb.Data
+namespace BooksTW.Data
 {
     public class AppDbContext:DbContext
     {

@@ -1,6 +1,6 @@
-﻿using TareaTecWeb.Models.Dtos;
+﻿using BooksTW.Models.Dtos;
 
-namespace TareaTecWeb.Services
+namespace BooksTW.Services
 {
     public interface IAuthService
     {

@@ -1,8 +1,8 @@
-﻿using TareaTecWeb.Models;
-using TareaTecWeb.Models.Dtos;
-using TareaTecWeb.Repositories;
+﻿using BooksTW.Models;
+using BooksTW.Models.Dtos;
+using BooksTW.Repositories;
 
-namespace TareaTecWeb.Services
+namespace BooksTW.Services
 {
     public class BookService : IBookService
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TareaTecWeb.Data;
-using TareaTecWeb.Models;
+using BooksTW.Data;
+using BooksTW.Models;
 
-namespace TareaTecWeb.Repositories
+namespace BooksTW.Repositories
 {
     public class UserRepository : IUserRepository
     {

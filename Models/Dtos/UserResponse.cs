@@ -1,4 +1,4 @@
-﻿namespace TareaTecWeb.Models.Dtos
+﻿namespace BooksTW.Models.Dtos
 {
     public class UserResponse
     {
