@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Npgsql;
 using System.Security.Claims;
 using System.Threading.RateLimiting;
 
@@ -77,9 +78,38 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", p => p.RequireRole("Admin"));
 });
-var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
 
-if (string.IsNullOrEmpty(connectionString))
+var connectionString = builder.Configuration.GetConnectionString("Default");
+var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+
+if (!string.IsNullOrEmpty(databaseUrl))
+{
+    try
+    {
+        Console.WriteLine($"Usando base de datos de Railway: {databaseUrl.Split('@').Last()}"); // Log seguro (no muestra la password)
+
+        var databaseUri = new Uri(databaseUrl);
+        var userInfo = databaseUri.UserInfo.Split(':');
+
+        var npgsqlBuilder = new NpgsqlConnectionStringBuilder
+        {
+            Host = databaseUri.Host,
+            Port = databaseUri.Port,
+            Username = userInfo[0],
+            Password = userInfo[1],
+            Database = databaseUri.LocalPath.TrimStart('/'),
+            SslMode = SslMode.Disable // A veces Railway prefiere 'Require' o 'Prefer', pero empieza con Disable o Prefer
+        };
+
+        connectionString = npgsqlBuilder.ToString();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error parseando la URL de Railway: {ex.Message}");
+    }
+}
+
+else if (string.IsNullOrEmpty(connectionString))
 {
     var dbName = Environment.GetEnvironmentVariable("POSTGRES_DB");
     var dbUser = Environment.GetEnvironmentVariable("POSTGRES_USER");
